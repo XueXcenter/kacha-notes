@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>笔记预览</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif;background:#1a1a2e;color:#eee;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px}
+.container{max-width:1200px;width:100%}
+.header{text-align:center;padding:20px 0;border-bottom:2px solid #667eea;margin-bottom:24px}
+.header h1{color:#667eea;font-size:20px;margin-bottom:10px}
+.meta{color:#888;font-size:13px}
+.meta span{margin:0 12px}
+.meta a{color:#667eea;text-decoration:none}
+.tags{display:flex;gap:6px;justify-content:center;margin:8px 0;flex-wrap:wrap}
+.tag{background:rgba(102,126,234,.2);color:#aab;padding:3px 12px;border-radius:12px;font-size:12px}
+.screenshot-wrap{text-align:center;margin-bottom:24px;background:#16213e;border-radius:12px;padding:16px;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.screenshot-wrap img{max-width:100%;max-height:70vh;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.note-section{background:#16213e;border-radius:12px;padding:24px;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.note-section h2{color:#667eea;font-size:16px;margin-bottom:12px;border-left:3px solid #667eea;padding-left:10px}
+.note-content{color:#ccc;line-height:1.8;font-size:15px;white-space:pre-wrap}
+.note-empty{color:#666;font-style:italic}
+.msg{text-align:center;padding:60px;color:#888;font-size:16px}
+.msg.err{color:#e74c3c}
+</style>
+</head>
+<body>
+<div id="app"><div class="msg">⏳ 加载中...</div></div>
+<script src="viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>咔擦笔记</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- 顶部 -->
+  <header class="popup-header">
+    <h1>📸 咔擦笔记</h1>
+  </header>
+
+  <!-- 搜索 + 全选 -->
+  <div class="search-bar">
+    <label class="select-all-wrap"><input type="checkbox" id="selectAll" title="全选/取消全选"></label>
+    <input type="text" id="searchInput" class="search-input" placeholder="搜索笔记...">
+    <span class="note-count" id="noteCount">0 条</span>
+  </div>
+
+  <!-- 工具栏 -->
+  <div class="toolbar">
+    <button class="tool-btn primary" id="exportSelMdBtn">📥 导出选中 MD</button>
+    <button class="tool-btn primary" id="exportSelPdfBtn">📄 导出选中 PDF</button>
+    <button class="tool-btn tool-btn-danger" id="clearAllBtn">🗑</button>
+  </div>
+
+  <!-- 列表 -->
+  <div class="notes-container" id="notesContainer">
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🎬</div>
+      <p id="emptyTitle">还没有笔记</p>
+      <p class="empty-hint">打开视频页面，点击右下角 📸 或按 Alt+S 截图</p>
+    </div>
+  </div>
+
+  <!-- 编辑弹窗 -->
+  <div class="edit-overlay" id="editOverlay" style="display:none;">
+    <div class="edit-dialog">
+      <div class="edit-header">
+        <span>✏️ 编辑笔记</span>
+        <button class="edit-close" id="editClose">✕</button>
+      </div>
+      <div class="edit-body">
+        <img id="editScreenshot" src="" alt="截图" class="edit-screenshot">
+        <label class="edit-label">标签</label>
+        <input type="text" id="editTags" class="edit-tags-input" placeholder="标签，逗号分隔" maxlength="60">
+        <label class="edit-label">笔记</label>
+        <textarea id="editText" class="edit-textarea" rows="5" placeholder="笔记内容..."></textarea>
+      </div>
+      <div class="edit-footer">
+        <button class="edit-save-btn" id="editSave">💾 保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分组模板 -->
+  <template id="groupTemplate">
+    <div class="note-group">
+      <div class="group-header">
+        <label class="group-check"><input type="checkbox" class="group-cb"></label>
+        <span class="group-title"></span>
+        <span class="group-count"></span>
+      </div>
+      <div class="group-items"></div>
+    </div>
+  </template>
+
+  <!-- 条目模板 -->
+  <template id="noteItemTemplate">
+    <div class="note-item">
+      <label class="item-check"><input type="checkbox" class="item-cb"></label>
+      <div class="note-thumb"><img src="" alt="截图"></div>
+      <div class="note-info">
+        <div class="note-time"></div>
+        <div class="note-tags"></div>
+        <div class="note-text"></div>
+      </div>
+      <div class="note-actions">
+        <button class="note-preview-btn" title="预览">🔍</button>
+        <button class="note-edit-btn" title="编辑">✏️</button>
+        <button class="note-delete" title="删除">✕</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="popup.js"></script>
+</body>
+</html>
